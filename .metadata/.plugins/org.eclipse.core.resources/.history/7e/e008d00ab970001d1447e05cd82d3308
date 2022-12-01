@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans 
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+	<bean id="figura01" class="com.example.demo.figure.Quadrato" >
+		<constructor-arg name="lato" value="4"/>
+	</bean>
+	
+    <bean id="figura02" class="com.example.demo.figure.Cerchio" >
+    	<constructor-arg name="raggio" value="7"/>
+    </bean>
+    
+    <bean id="figura03" class="com.example.demo.figure.Rettangolo" >
+    	<constructor-arg name="base" value="3"/>
+    	<constructor-arg name="altezza" value="4"/>
+    </bean>
+    
+    <bean id="colore1" class="com.example.demo.colore.Colore" >
+    	<constructor-arg name="r" value="255"/>
+    	<constructor-arg name="g" value="0"/>
+    	<constructor-arg name="b" value="0"/>
+    </bean>
+    
+    <bean id="figuraColorata" class="com.example.demo.figure.FiguraColorata" >
+    	<constructor-arg name="figura" ref="figura01"/>
+    	<constructor-arg name="colore" ref="colore1"/>
+    </bean>
+    
+    <bean id="figuraConBordo" class="com.example.demo.figure.FiguraConBordo" >
+    	<constructor-arg name="figura" ref="figura02"/>
+    	<constructor-arg name="spessoreBordo" value="3"/>
+    </bean>
+    
+    <bean id="triangolo" class="com.example.demo.figure.Triangolo" >
+		<constructor-arg name="base" value="4"/>
+		<constructor-arg name="altezza" value="6"/>
+	</bean>
+     
+      <bean id="stella" class="com.example.demo.figure.FiguraComposta" >
+    	<constructor-arg name="listaFigure">
+    		<list>
+    			<ref bean="figura01"/>
+    			<ref bean="triangolo"/>
+    			<ref bean="triangolo"/>
+    			<ref bean="triangolo"/>
+    			<ref bean="triangolo"/>
+    		</list>
+    	</constructor-arg>
+    	<constructor-arg name="spessoreBordo" value="3"/>
+    </bean>
+    
+</beans>

@@ -1,0 +1,10 @@
+package treno;
+
+public class Ristorante extends Vagone {
+
+	private final static int pesoRistorante = 50;
+	
+	public Ristorante() {
+		super(pesoRistorante);
+	}
+}

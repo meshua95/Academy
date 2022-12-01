@@ -1,0 +1,33 @@
+package treno;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class TrenoFactory {
+
+	public static List<Vagone> creaTreno(String treno){
+		if(treno.length()< 2 
+				|| !treno.startsWith("H")
+				|| treno.contains("C") && (treno.contains("P") || treno.contains("R"))
+				) {
+			return new ArrayList<>();
+		} else {
+			List<Vagone> listaVagoni = new ArrayList<>();
+			for(int i = 0; i < treno.length(); i++) {
+				char vagone = treno.toCharArray()[i];
+				switch(vagone) {
+				case 'H' -> listaVagoni.add(new Locomotiva());
+				case 'C' -> listaVagoni.add(new Cargo());
+				case 'P' -> listaVagoni.add(new Passeggeri());
+				case 'R' -> listaVagoni.add(new Ristorante());
+				}
+			}
+			treno.toCharArray();
+			
+			
+			
+			return listaVagoni;
+		}
+		
+	}
+}

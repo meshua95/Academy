@@ -1,0 +1,22 @@
+package com.exception;
+
+public class NumeroPostiInEccesso extends TrenoException {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private int numeroPostiTreno;
+	private int maxPosti;
+	private int postiVagone;
+	private String sigla;
+	
+	public NumeroPostiInEccesso(String sigla, int postiVagone, int numeroPostiTreno, int maxPosti){
+		super(sigla, "Numero di posti " + numeroPostiTreno + ", troppi rispetto al limite massimo di " + maxPosti);
+		this.maxPosti = maxPosti;
+		this.numeroPostiTreno = numeroPostiTreno;
+		this.sigla = sigla;
+		this.postiVagone = postiVagone;
+	}
+
+}

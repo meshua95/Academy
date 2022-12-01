@@ -1,0 +1,18 @@
+package lezione1125;
+
+public class CaffeConZucchero extends CaffeDecorator{
+	
+	private int qtaZucchero;
+	
+	public CaffeConZucchero(Caffe caffe, int qtaZucchero) {
+		super(caffe);
+		
+	}
+
+	@Override
+	public String prepara() {
+		String res = super() + "Ho aggiunto " + qtaZucchero + "cucchiaini di zucchero.";
+		return res ;
+	}
+
+}

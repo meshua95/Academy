@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans 
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+	<bean id="figura01" class="com.example.demo.figure.Quadrato" >
+		<constructor-arg name="lato" value="4"/>
+	</bean>
+
+    <bean id="figura02" class="com.example.demo.figure.Cerchio" >
+    	<constructor-arg name="raggio" value="7"/>
+    </bean>
+    
+    <bean id="figura03" class="com.example.demo.figure.Rettangolo" >
+    	<constructor-arg name="base" value="3"/>
+    	<constructor-arg name="altezza" value="4"/>
+    </bean>
+    
+    <bean id="colore1" class="com.example.demo.colore.Colore" >
+    	<constructor-arg name="r" value="255"/>
+    	<constructor-arg name="g" value="0"/>
+    	<constructor-arg name="b" value="0"/>
+    </bean>
+    
+    <bean id="figuraColorata" class="com.example.demo.figure.FiguraColorata" >
+		<property name="figura" ref="figura01"></property>
+    	<property name="Colore" ref="colore1"></property>
+    </bean>
+     
+    
+    
+</beans>

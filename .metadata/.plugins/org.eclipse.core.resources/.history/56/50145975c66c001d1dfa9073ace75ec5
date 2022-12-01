@@ -1,0 +1,7 @@
+
+public class Main {
+	public static void main(String[] args) {
+		Caffe e = new Espresso("arabica");
+		CaffeCacao cc = new CaffeCacao();
+	}
+}

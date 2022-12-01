@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans 
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+	<bean id="figura01" class="figure.Quadrato" >
+		<constructor-arg name="lato" value="4"/>
+	</bean>
+
+    <bean id="figura02" class="com.corso.figure.Cerchio" >
+    	<constructor-arg name="raggio" value="10"/>
+    </bean>
+    
+    <bean id="figuraColorata" class="com.corso.figure.FiguraColorata" >
+    	<constructor-arg name="figura" value="figura02"/>
+    	<constructor-arg name="colore" value="figura02"/>
+    </bean>
+    
+</beans>

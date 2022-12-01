@@ -1,0 +1,16 @@
+package com.exceptions.wrongCombination;
+
+import com.exceptions.WrongCombinationException;
+
+public class CannotCombineRCException extends WrongCombinationException {
+	private String message;
+
+	public CannotCombineRCException(String sigla) {
+		super(sigla);
+		this.message = "La carrozza Cargo non puo' essere combinato con quella Ristorante";
+	
+	}
+	public String getMessage() {
+		return super.getMessage() + "\n" + this.message;
+	}
+}

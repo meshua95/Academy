@@ -1,0 +1,19 @@
+package com.exception;
+
+public class LocomotivaInTesta extends TrenoException {
+	
+	private static final long serialVersionUID = -4527258095731838432L;
+	private String message;
+	private String suggerimento;
+	
+	public LocomotivaInTesta(String sigla){
+		super(sigla);
+		this.message = "Il treno deve avere una locomotiva in testa";
+		this.suggerimento = "Inserire una locomotiva come primo vagone del treno";
+	}
+	
+	public String getMessage() {
+		return super.getMessage() + this.message;
+	}
+
+}

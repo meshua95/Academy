@@ -1,0 +1,8 @@
+package treno;
+
+public class Cargo extends Vagone {
+
+	public Cargo(int peso) {
+		super(peso);
+	}
+}

@@ -1,0 +1,15 @@
+package use;
+
+import treno.Treno;
+
+public class MainClass {
+
+	public static void main(String[] args) {
+		Treno treno1 = new Treno("Italo", "HPPPR");
+		treno1.toString();
+		
+		Treno treno2 = new Treno("Trenitalia", "HCCCC");
+		treno2.toString();
+
+	}
+}

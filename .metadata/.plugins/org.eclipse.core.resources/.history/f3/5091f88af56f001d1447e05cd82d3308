@@ -1,0 +1,42 @@
+package com.test;
+
+import java.util.Scanner;
+
+import com.builder.ConcreteBuilder;
+import com.builder.TrenoBuilder;
+import com.exception.exceed.NumeroPostiInEccesso;
+import com.factory.FRFactory;
+import com.factory.TNFactory;
+import com.factory.VagoneFactory;
+import com.treno.Treno;
+
+public class Main {
+
+	public static void main(String[] args) {
+		Scanner sr = new Scanner(System.in);
+		System.out.println("Inserisci codice treno: ");
+		String codiceTreno = sr.nextLine();
+		
+		VagoneFactory vagoneFactoryTN = new TNFactory();
+		TrenoBuilder builderTN = new ConcreteBuilder(vagoneFactoryTN);
+		Treno tTN;
+		VagoneFactory vagoneFactoryFR = new FRFactory();
+		TrenoBuilder builder = new ConcreteBuilder(vagoneFactoryFR);
+		Treno t;
+		try {
+			tTN = builderTN.buildTreno(codiceTreno.toUpperCase());
+			System.out.println("\n\nTreno TN");
+			System.out.println(tTN);
+			
+			t = builder.buildTreno(codiceTreno.toUpperCase());
+			System.out.println("\n\nTreno FR");
+			System.out.println(t);
+		} catch (NullPointerException e) {
+			e.printStackTrace();
+		} catch (NumeroPostiInEccesso e) {
+			System.out.println(e.getMessage());
+		}
+		
+	}
+
+}

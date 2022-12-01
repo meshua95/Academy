@@ -1,0 +1,8 @@
+package treno;
+
+public interface VagoneFactory {
+	
+	public Locomotiva getLocomotiva();
+	
+	public Carrozza getCarrozza();
+}

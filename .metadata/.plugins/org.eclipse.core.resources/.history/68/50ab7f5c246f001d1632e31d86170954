@@ -1,0 +1,9 @@
+package com.exception;
+
+public class NumeroPostiInEccesso extends Exception {
+	
+	public NumeroPostiInEccesso(int numPosti, int maxPosti){
+		super("Numero di posti " + numPosti + " in eccesso rispetto al limite massimo di " + maxPosti);
+	}
+
+}

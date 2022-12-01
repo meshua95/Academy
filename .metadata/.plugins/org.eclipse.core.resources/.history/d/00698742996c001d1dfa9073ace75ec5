@@ -1,0 +1,10 @@
+package treno;
+
+public class Passeggeri extends Vagone {
+
+	private final static int pesoPasseggeri = 100;
+	
+	public Passeggeri() {
+		super(pesoPasseggeri);
+	}
+}

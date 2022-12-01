@@ -1,0 +1,66 @@
+package treno;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class TrenoFactory {
+	
+	private static final int CAPIENZA_MASSIMA = 500;
+
+	public static List<Vagone> creaTreno(String treno){
+		System.out.println(treno.length());
+		if(treno.length()< 2 
+				|| !treno.startsWith("H")
+				|| treno.contains("C") && (treno.contains("P") || treno.contains("R"))) {
+			return new ArrayList<>();
+		} else {
+			char[] vagoni = treno.toCharArray();
+			int numH = 0;
+			int numR = 0;
+			for(int i = 0; i < treno.length(); i++){
+				if(vagoni[i] == 'H') {
+					numH++;
+				} else if (vagoni[i] == 'R') {
+					numR++;
+				} else if (vagoni[i] != 'C' && vagoni[i] != 'P') {
+					return new ArrayList<>();
+				}
+			}
+			if (numH == 2 && !treno.endsWith("H") 
+					|| numH > 2 
+					|| numR > 1) {
+					return new ArrayList<>();
+			}
+			
+			List<Vagone> listaVagoni = new ArrayList<>();
+			int pesoTrainabileTot = 0;
+			int pesoTot = 0;
+			int capienzaAttuale = 0;
+			for(int i = 0; i < treno.length(); i++) {
+				char vagone = treno.toCharArray()[i];
+				switch(vagone) {
+				case 'H' -> {
+					Locomotiva l = new Locomotiva();
+					listaVagoni.add(l);
+					pesoTrainabileTot += l.getPesoTrainabile();
+				}
+				case 'C' -> listaVagoni.add(new Cargo());
+				case 'P' -> {
+					Passeggeri p = new Passeggeri();
+					listaVagoni.add(p);
+					capienzaAttuale += p.getPosti();
+				}
+				case 'R' -> listaVagoni.add(new Ristorante());
+				}
+				pesoTot += listaVagoni.get(i).getPeso();
+			}
+			
+			if(pesoTot > pesoTrainabileTot || capienzaAttuale > CAPIENZA_MASSIMA) {
+				return new ArrayList<>();
+			} else {
+				return listaVagoni;
+			}
+		}
+		
+	}
+}

@@ -1,0 +1,8 @@
+package treno;
+
+public class Ristorante extends Vagone {
+
+	public Ristorante(int peso) {
+		super(peso);
+	}
+}

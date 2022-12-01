@@ -1,0 +1,10 @@
+package lezione1125;
+
+public abstract class CaffeDecorator implements Caffe{
+	
+	private Caffe caffe;
+	
+	public CaffeDecorator(Caffe caffe) {
+		this.caffe = caffe;
+	}
+}

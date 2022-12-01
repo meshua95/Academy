@@ -1,0 +1,12 @@
+package Main;
+
+import treno.Treno;
+
+public class Main {
+
+	public static void main(String[] args) {
+		Treno treno = new Treno();
+
+	}
+
+}

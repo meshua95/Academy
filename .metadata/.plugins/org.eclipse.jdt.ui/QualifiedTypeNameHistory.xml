@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="java.util.Iterator"/>
+    <fullyQualifiedTypeName name="java.awt.Color"/>
+    <fullyQualifiedTypeName name="java.util.Comparator"/>
+    <fullyQualifiedTypeName name="java.util.stream.Collectors"/>
+    <fullyQualifiedTypeName name="esercizi_221123.figura.Quadrato"/>
+    <fullyQualifiedTypeName name="esercizi_221123.figura.Figura"/>
+    <fullyQualifiedTypeName name="esercizi_221123.figura.Rettangolo"/>
+    <fullyQualifiedTypeName name="esercizi_221123.figura.Triangolo"/>
+    <fullyQualifiedTypeName name="esercizi_221123.figura.FiguraColorata"/>
+    <fullyQualifiedTypeName name="esercizi_221123.colore.Colore"/>
+    <fullyQualifiedTypeName name="figura.FiguraComposta"/>
+    <fullyQualifiedTypeName name="figura.Cerchio"/>
+    <fullyQualifiedTypeName name="figura.Stella"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="lezione1125.CaffeConZucchero"/>
+    <fullyQualifiedTypeName name="com.treno.Ristorante"/>
+    <fullyQualifiedTypeName name="com.treno.Passeggeri"/>
+    <fullyQualifiedTypeName name="com.treno.Cargo"/>
+    <fullyQualifiedTypeName name="figure.FiguraUnica"/>
+    <fullyQualifiedTypeName name="com.exception.SiglaAssente"/>
+    <fullyQualifiedTypeName name="com.exception.SiglaTroppoCorta"/>
+    <fullyQualifiedTypeName name="com.exception.LocomotivaInTesta"/>
+    <fullyQualifiedTypeName name="com.exception.TroppeLocomotive"/>
+    <fullyQualifiedTypeName name="com.exception.SiglaErrata"/>
+    <fullyQualifiedTypeName name="com.exception.TroppiRistoranti"/>
+    <fullyQualifiedTypeName name="com.exceptions.TrenoException"/>
+    <fullyQualifiedTypeName name="figure.StellaFactory"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="figure.Quadrato"/>
+    <fullyQualifiedTypeName name="figure.Cerchio"/>
+    <fullyQualifiedTypeName name="figure.FiguraColorata"/>
+    <fullyQualifiedTypeName name="org.springframework.context.annotation.Configuration"/>
+</qualifiedTypeNameHistroy>

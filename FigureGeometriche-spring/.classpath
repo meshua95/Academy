@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-17">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/GALASSIM/Desktop/Academy/jars/spring-aop-5.3.10.jar"/>
+	<classpathentry kind="lib" path="C:/Users/GALASSIM/Desktop/Academy/jars/spring-beans-5.3.10.jar"/>
+	<classpathentry kind="lib" path="C:/Users/GALASSIM/Desktop/Academy/jars/spring-context-5.3.10 .jar"/>
+	<classpathentry kind="lib" path="C:/Users/GALASSIM/Desktop/Academy/jars/spring-context-indexer-5.3.10.jar"/>
+	<classpathentry kind="lib" path="C:/Users/GALASSIM/Desktop/Academy/jars/spring-context-support-5.3.10.jar"/>
+	<classpathentry kind="lib" path="C:/Users/GALASSIM/Desktop/Academy/jars/spring-core-5.3.10.jar"/>
+	<classpathentry kind="lib" path="C:/Users/GALASSIM/Desktop/Academy/jars/spring-instrument-5.3.10.jar"/>
+	<classpathentry kind="lib" path="C:/Users/GALASSIM/Desktop/Academy/jars/spring-jcl-5.3.10.jar"/>
+	<classpathentry kind="lib" path="C:/Users/GALASSIM/Desktop/Academy/jars/spring-jdbc-5.3.10.jar"/>
+	<classpathentry kind="lib" path="C:/Users/GALASSIM/Desktop/Academy/jars/spring-jms-5.3.10.jar"/>
+	<classpathentry kind="lib" path="C:/Users/GALASSIM/Desktop/Academy/jars/spring-orm-5.3.10.jar"/>
+	<classpathentry kind="lib" path="C:/Users/GALASSIM/Desktop/Academy/jars/spring-oxm-5.3.10.jar"/>
+	<classpathentry kind="lib" path="C:/Users/GALASSIM/Desktop/Academy/jars/spring-r2dbc-5.3.10.jar"/>
+	<classpathentry kind="lib" path="C:/Users/GALASSIM/Desktop/Academy/jars/spring-test-5.3.10.jar"/>
+	<classpathentry kind="lib" path="C:/Users/GALASSIM/Desktop/Academy/jars/spring-tx-5.3.10.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

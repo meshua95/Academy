@@ -1,0 +1,15 @@
+package com.exception;
+
+public class SiglaErrata extends TrenoException {
+
+	private String message;
+	
+	public SiglaErrata(String sigla){
+		super(sigla);
+	}
+	
+	public String getMessage() {
+		return super.getMessage() + this.message;
+	}
+
+}

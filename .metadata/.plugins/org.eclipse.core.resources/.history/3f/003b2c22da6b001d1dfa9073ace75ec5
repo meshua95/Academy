@@ -1,0 +1,27 @@
+
+
+import colore.Colore;
+import figura.Figura;
+import figura.FiguraColorata;
+import figura.Quadrato;
+import figura.Rettangolo;
+import figura.Triangolo;
+
+public class Main {
+
+	public static void main(String[] args) {
+		Figura quad = new Quadrato(5);
+		System.out.println(quad.toString());
+		
+		Figura rett = new Rettangolo(5, 3);
+		System.out.println(quad.toString());
+		
+		Figura tri = new Triangolo(5, 3);
+		System.out.println(tri.toString());
+
+		FiguraColorata triCol = new FiguraColorata(tri, new Colore(255, 0, 0));
+		System.out.println(triCol.toString());
+		
+	}
+
+}

@@ -1,0 +1,14 @@
+package test;
+
+import figure.FiguraUnica;
+
+public class FiguraUnicaTest {
+	
+	public static void main(String[] args) {
+		FiguraUnica f1 = new FiguraUnica();
+		FiguraUnica f2 = new FiguraUnica();
+		
+		System.out.println(f1);
+		System.out.println(f2);
+	}
+}

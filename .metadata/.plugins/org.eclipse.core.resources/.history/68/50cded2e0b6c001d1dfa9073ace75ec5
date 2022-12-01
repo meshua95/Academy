@@ -1,0 +1,13 @@
+package treno;
+
+import java.util.List;
+
+public class Treno {
+	
+	List<Vagone> vagoni;
+	
+	public Treno(String vagoni) {
+		vagoni = TrenoFactory.creaTreno(vagoni);
+	}
+
+}

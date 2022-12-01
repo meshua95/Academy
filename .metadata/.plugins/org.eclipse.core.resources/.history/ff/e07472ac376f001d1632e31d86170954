@@ -1,0 +1,16 @@
+package com.exception;
+
+public class SiglaTroppoCorta extends TrenoException {
+
+	private static final long serialVersionUID = 6403179780448318866L;
+	private String message;
+	
+	public SiglaTroppoCorta(String sigla){
+		super(sigla);
+	}
+	
+	public String getMessage() {
+		return super.getMessage() + this.message;
+	}
+
+}

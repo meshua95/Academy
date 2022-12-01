@@ -1,0 +1,15 @@
+package treno;
+
+public class Locomotiva extends Vagone {
+	
+	private final static int pesoTrainabile = 100;
+	
+	public Locomotiva(int peso) {
+		super(peso);
+	}
+	
+	public int getPesoTrainabile() {
+		return pesoTrainabile;
+	}
+
+}

@@ -1,0 +1,16 @@
+package com.builder;
+
+import com.treno.Cargo;
+import com.treno.Locomotiva;
+import com.treno.Ristorante;
+import com.treno.Treno;
+
+public abstract class TrenoBuilder {
+	
+	
+	public abstract Treno buildTreno(String stringa) throws IllegalArgumentException, NullPointerException;
+	
+	public abstract Locomotiva getLocomotiva();
+
+	
+}

@@ -1,0 +1,14 @@
+package com.exception;
+
+public class NumeroPostiInEccesso extends Exception {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
+	NumeroPostiInEccesso(int numPosti, int maxPosti){
+		
+	}
+
+}

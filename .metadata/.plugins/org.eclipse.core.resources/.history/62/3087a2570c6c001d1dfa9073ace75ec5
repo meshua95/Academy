@@ -1,0 +1,11 @@
+package treno;
+
+public abstract class Vagone {
+	
+	private int peso;
+	
+	public int getPeso() {
+		return peso;
+	}
+	
+}

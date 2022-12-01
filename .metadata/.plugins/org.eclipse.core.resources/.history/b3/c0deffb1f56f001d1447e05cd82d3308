@@ -1,0 +1,9 @@
+package com.exceptions;
+
+public class ExceedException extends TrenoException {
+
+	public ExceedException(String sigla) {
+		super(sigla);
+	}
+
+}

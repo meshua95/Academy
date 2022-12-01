@@ -1,0 +1,13 @@
+package figura;
+
+public abstract class PoligonoRegolareUtility implements PoligonoRegolare {
+	
+	public static double area(double apotema, double lato) {
+		return apotema*lato;
+	}
+	
+	public double perimetro(double lato, int numLati)  {
+		return numLati*lato;
+	}
+
+}

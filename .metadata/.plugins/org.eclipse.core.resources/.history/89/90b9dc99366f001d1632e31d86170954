@@ -1,0 +1,15 @@
+package com.exception;
+
+public class SiglaAssente extends TrenoException {
+
+	private String message;
+	
+	public SiglaAssente(){
+		super("Non è stata inserita alcuna sigla");
+	}
+	
+	public String getMessage() {
+		return super.getMessage() + this.message;
+	}
+
+}

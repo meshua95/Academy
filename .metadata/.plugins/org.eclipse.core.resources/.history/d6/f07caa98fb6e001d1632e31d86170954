@@ -1,0 +1,122 @@
+package com.builder;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import com.factory.FRFactory;
+import com.factory.TNFactory;
+import com.factory.VagoneFactory;
+import com.treno.Carrozza;
+import com.treno.Locomotiva;
+import com.treno.Treno;
+
+public class ConcreteBuilder extends TrenoBuilder{
+	private VagoneFactory vagoneFactory;
+	
+	public ConcreteBuilder(VagoneFactory vagoneFactory) {
+		this.vagoneFactory = vagoneFactory;
+	}
+
+	@Override
+	public Locomotiva getLocomotiva() {
+		// TODO Auto-generated method stub
+		return vagoneFactory.getLocomotiva();
+
+	}
+
+	@Override
+	public Treno buildTreno(String stringa) throws IllegalArgumentException, NullPointerException {
+		int ristoranti=0;
+		int passeggeri=0;
+		int cargo=0;
+		int teste=1;
+		int maxPersone=0;
+		if(vagoneFactory instanceof FRFactory) { 
+			FRFactory concreteFactory = (FRFactory) vagoneFactory;
+			maxPersone=concreteFactory.getMassimoPosti();
+		}
+		if(vagoneFactory instanceof TNFactory) { 
+			TNFactory concreteFactory = (TNFactory) vagoneFactory;
+			maxPersone=concreteFactory.getMassimoPosti();
+		}
+		
+		
+		if (stringa==null)
+			throw new NullPointerException("Stringa nulla!");
+		if (stringa.length()<2)
+			throw new IllegalArgumentException("Troppi pochi componenti!");
+		if (!stringa.startsWith("H"))
+			throw new IllegalArgumentException("Manca la locomotiva all'inizio!");
+		for(int i=1;i<stringa.length();i++) {
+			switch(stringa.charAt(i)){
+				case 'H':
+					if(i!=stringa.length()-1)
+						throw new IllegalArgumentException("Troppe locomotive!");
+					teste++;
+					break;
+				case 'R':
+					ristoranti++;
+					break;
+				case 'P':
+					passeggeri++;
+					break;
+				case 'C':
+					cargo++;
+					break;
+				default:
+					throw new IllegalArgumentException("Carattere non idoneo!");
+					
+			}
+		}
+		if(ristoranti>1)
+			throw new IllegalArgumentException("Troppi ristoranti!");
+		int postiTreno=0;
+		for(int i=0;i<=passeggeri;i++) {
+			postiTreno+= vagoneFactory.getPasseggeri().getNumeroPosti()+vagoneFactory.getPasseggeri().getPostiDisabili();
+		}
+		if(postiTreno>maxPersone)
+			throw new IllegalArgumentException("Troppi passeggeri!");
+		if((cargo>0&&passeggeri>0)||(cargo>0&&ristoranti>0))
+			throw new IllegalArgumentException("Non puo' esserci il cargo con altri componenti che non siano locomotive!");
+		
+		
+		//Creazione treno
+
+		List<Carrozza> lista = new ArrayList<Carrozza>();
+		Locomotiva locomotivaTesta = vagoneFactory.getLocomotiva();
+		if(ristoranti==1)
+			lista.add(vagoneFactory.getRistorante());
+		if(teste>1)
+			lista.add(vagoneFactory.getLocomotiva());
+		for(int i=0;i<cargo;i++) 
+			lista.add(vagoneFactory.getCargo());
+		
+		for(int i=0;i<passeggeri;i++)
+			lista.add(vagoneFactory.getPasseggeri());
+		
+		int pesoTotale=0;
+		for(Carrozza c : lista) {
+			pesoTotale+=c.getPeso();
+		}
+		pesoTotale+=locomotivaTesta.getPeso();
+		if(pesoTotale>vagoneFactory.getLocomotiva().getPesoTrainabile())
+			throw new IllegalArgumentException("Peso eccessivo!");
+		Treno t = new Treno(stringa, lista, locomotivaTesta);
+		return t;
+	}
+	
+	/*
+	 * La stringa può essere qualsiasi, inserita da utente ed è da controllare: 
+		Controlli sulla stringa: 
+		1- La locomotiva in testa è obbligatoria
+		2- massimo un vagone ristorante
+		3- Deve avere almeno due elementi
+		4- un limite massimo alla capienza dei posti per il treno complessivo
+		5- se sono due locomotive l’altra deve essere in coda
+		6- cargo e passeggeri mai insieme (vagoni incompatibili)
+		7- ristorante e cargo mai insieme (vagoni incompatibili)
+		8- vagone inesistente o carattere non idoneo
+		9- il treno deve poter partire pesoTrainabile > peso del treno
+	 */
+	 
+}

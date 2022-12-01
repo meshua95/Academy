@@ -1,0 +1,40 @@
+package com.builder;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import com.factory.FRFactory;
+import com.factory.TNFactory;
+import com.factory.VagoneFactory;
+import com.treno.Carrozza;
+import com.treno.Locomotiva;
+import com.treno.Treno;
+
+public class ConcreteBuilder extends TrenoBuilder{
+	private VagoneFactory vagoneFactory;
+	
+	public ConcreteBuilder(VagoneFactory vagoneFactory) {
+		this.vagoneFactory = vagoneFactory;
+	}
+
+	@Override
+	public Locomotiva getLocomotiva() {
+		return vagoneFactory.getLocomotiva();
+
+	}
+	
+	/*
+	 * La stringa può essere qualsiasi, inserita da utente ed è da controllare: 
+		Controlli sulla stringa: 
+		1- La locomotiva in testa è obbligatoria
+		2- massimo un vagone ristorante
+		3- Deve avere almeno due elementi
+		4- un limite massimo alla capienza dei posti per il treno complessivo
+		5- se sono due locomotive l’altra deve essere in coda
+		6- cargo e passeggeri mai insieme (vagoni incompatibili)
+		7- ristorante e cargo mai insieme (vagoni incompatibili)
+		8- vagone inesistente o carattere non idoneo
+		9- il treno deve poter partire pesoTrainabile > peso del treno
+	 */
+	 
+}

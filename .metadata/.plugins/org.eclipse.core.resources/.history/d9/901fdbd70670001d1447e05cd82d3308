@@ -1,0 +1,33 @@
+package com.test;
+
+import java.util.Scanner;
+
+import com.builder.ConcreteBuilder;
+import com.builder.TrenoBuilder;
+import com.exceptions.TrenoException;
+import com.factory.TNFactory;
+import com.factory.VagoneFactory;
+import com.treno.Treno;
+
+public class Main {
+	
+	public static void main(String...args) {
+		
+		Scanner sr = new Scanner(System.in);
+		System.out.println("Inserisci codice treno: ");
+		String codiceTreno = sr.nextLine();
+		
+		
+		VagoneFactory vagoneFactoryTN = new TNFactory();
+		TrenoBuilder builderTN = new ConcreteBuilder(vagoneFactoryTN);
+		Treno tTN;
+			try {
+				tTN = builderTN.buildTreno(codiceTreno.toUpperCase());
+				System.out.println("\n\nTreno TN");
+				System.out.println(tTN);
+			} catch (TrenoException e) {
+				e.printStackTrace();
+			}	
+	}
+	
+}

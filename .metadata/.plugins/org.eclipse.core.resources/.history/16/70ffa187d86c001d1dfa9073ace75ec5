@@ -1,0 +1,15 @@
+package treno;
+
+public abstract class Vagone {
+	
+	private int peso;
+	
+	public Vagone(int peso) {
+		this.peso = peso;
+	}
+	
+	public int getPeso() {
+		return peso;
+	}
+	
+}

@@ -1,0 +1,27 @@
+package esercizi_221123.utilizzatori;
+
+import esercizi_221123.colore.Colore;
+import esercizi_221123.figura.Figura;
+import esercizi_221123.figura.FiguraColorata;
+import esercizi_221123.figura.Quadrato;
+import esercizi_221123.figura.Rettangolo;
+import esercizi_221123.figura.Triangolo;
+
+public class Main {
+
+	public static void main(String[] args) {
+		Figura quad = new Quadrato(5);
+		System.out.println(quad.toString());
+		
+		Figura rett = new Rettangolo(5, 3);
+		System.out.println(quad.toString());
+		
+		Figura tri = new Triangolo(5, 3);
+		System.out.println(tri.toString());
+
+		FiguraColorata triCol = new FiguraColorata(tri, new Colore(255, 0, 0));
+		System.out.println(triCol.toString());
+		
+	}
+
+}

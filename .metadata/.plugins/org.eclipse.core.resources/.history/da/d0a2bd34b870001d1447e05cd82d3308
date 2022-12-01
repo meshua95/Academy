@@ -1,0 +1,36 @@
+package com.example.demo.spring;
+
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import com.example.demo.figure.Cerchio;
+import com.example.demo.figure.FiguraColorata;
+import com.example.demo.figure.FiguraConBordo;
+import com.example.demo.figure.Quadrato;
+import com.example.demo.figure.Rettangolo;
+
+public class SpringApp {
+
+	public static void main( String[] args )  {
+
+		ClassPathXmlApplicationContext context;
+
+		context = new ClassPathXmlApplicationContext("beans.xml");
+		context.registerShutdownHook();
+
+		Quadrato f1 = (Quadrato) context.getBean("figura01"); 
+		f1.draw();
+		
+		Cerchio f2 = (Cerchio) context.getBean("figura02"); 
+		f2.draw();
+		
+		Rettangolo f3 = (Rettangolo) context.getBean("figura03");
+		f3.draw();
+		
+		FiguraColorata figuraColorata = (FiguraColorata) context.getBean("figuraColorata");
+		figuraColorata.draw();
+		
+		FiguraConBordo figuraConBordo = (FiguraConBordo) context.getBean("figuraConBordo");
+		figuraConBordo.draw();
+		
+	}
+}

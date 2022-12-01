@@ -1,0 +1,12 @@
+package com.exception;
+
+public class TrenoException extends Exception {
+	
+	private String sigla;
+	
+	public TrenoException(String sigla) {
+		super("Costruzione del treno di sigla "+ sigla + "impossibile. \n");
+		this.sigla = sigla;
+	}
+
+}

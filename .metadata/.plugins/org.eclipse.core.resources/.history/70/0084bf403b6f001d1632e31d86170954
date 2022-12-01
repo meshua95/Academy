@@ -1,0 +1,134 @@
+package com.builder;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import com.exception.LocomotivaInTesta;
+import com.exception.NumeroPostiInEccesso;
+import com.exception.SiglaAssente;
+import com.exception.SiglaErrata;
+import com.exception.SiglaTroppoCorta;
+import com.exception.TroppeLocomotive;
+import com.exception.TroppiRistoranti;
+import com.treno.Cargo;
+import com.treno.Carrozza;
+import com.treno.Locomotiva;
+import com.treno.Passeggeri;
+import com.treno.Ristorante;
+import com.treno.Treno;
+
+public abstract class TrenoBuilder {
+
+	/**
+	 * La stringa può essere qualsiasi, inserita da utente ed è da controllare: 
+		Controlli sulla stringa: 
+		1- La locomotiva in testa è obbligatoria
+		2- massimo un vagone ristorante
+		3- Deve avere almeno due elementi
+		4- un limite massimo alla capienza dei posti per il treno complessivo
+		5- se sono due locomotive l’altra deve essere in coda
+		6- cargo e passeggeri mai insieme (vagoni incompatibili)
+		7- ristorante e cargo mai insieme (vagoni incompatibili)
+		8- vagone inesistente o carattere non idoneo
+		9- il treno deve poter partire pesoTrainabile > peso del treno
+	 * @throws NumeroPostiInEccesso 
+	 * @throws SiglaAssente 
+	 * @throws SiglaTroppoCorta 
+	 * @throws LocomotivaInTesta 
+	 * @throws TroppeLocomotive 
+	 * @throws SiglaErrata 
+	 * @throws TroppiRistoranti 
+	 */
+	public final Treno buildTreno(String sigla) throws NumeroPostiInEccesso, SiglaAssente, SiglaTroppoCorta, LocomotivaInTesta, TroppeLocomotive, SiglaErrata, TroppiRistoranti {
+		int ristoranti=0;
+		int passeggeri=0;
+		int cargo=0;
+		int teste=1;
+
+		if (sigla==null) {
+			throw new SiglaAssente();
+		}
+		if (sigla.length()<2) {
+			throw new SiglaTroppoCorta(sigla);
+		}
+		if (!sigla.startsWith("H")) {
+			throw new LocomotivaInTesta(sigla);
+		}	
+		for(int i=1;i<sigla.length();i++) {
+			switch(sigla.charAt(i)){
+			case 'H':
+				if(i!=sigla.length()-1)
+					throw new TroppeLocomotive(sigla);
+				teste++;
+				break;
+			case 'R':
+				ristoranti++;
+				break;
+			case 'P':
+				passeggeri++;
+				break;
+			case 'C':
+				cargo++;
+				break;
+			default:
+				throw new SiglaErrata(sigla);
+
+			}
+		}
+		if(ristoranti>1) {
+			throw new TroppiRistoranti(sigla, ristoranti);
+		}
+
+		if((cargo>0 && passeggeri>0) || (cargo>0 && ristoranti>0)) {
+			throw new IllegalArgumentException("Non puo' esserci il cargo con altri componenti che non siano locomotive!");
+		}
+
+		//Creazione treno
+
+		List<Carrozza> lista = new ArrayList<Carrozza>();
+		Locomotiva locomotivaTesta = getLocomotiva();
+		if(ristoranti==1) {
+			lista.add(getRistorante());
+		}
+		if(teste>1) {
+			lista.add(getLocomotiva());
+		}
+		for(int i=0;i<cargo;i++) {
+			lista.add(getCargo());
+		}
+
+		int numPosti = 0;
+		int postiVagone = 0;
+		for(int i=0;i<passeggeri;i++) {
+			Passeggeri p = getPasseggeri();
+			numPosti += p.getNumeroPosti();
+			postiVagone = p.getNumeroPosti();
+			lista.add(p);
+		}
+
+		if(numPosti > getMassimoPosti()) {
+			throw new NumeroPostiInEccesso(sigla, postiVagone, numPosti, getMassimoPosti());
+		}
+
+		int pesoTotale=0;
+		for(Carrozza c : lista) {
+			pesoTotale+=c.getPeso();
+		}
+		pesoTotale += locomotivaTesta.getPeso();
+		if(pesoTotale > locomotivaTesta.getPesoTrainabile())
+			throw new IllegalArgumentException("Peso eccessivo!");
+		Treno t = new Treno(sigla, lista, locomotivaTesta);
+		return t;
+	}
+
+	public abstract int getMassimoPosti();
+
+	public abstract Locomotiva getLocomotiva();
+
+	public abstract Ristorante getRistorante();
+
+	public abstract Passeggeri getPasseggeri();
+
+	public abstract Cargo getCargo();
+
+}

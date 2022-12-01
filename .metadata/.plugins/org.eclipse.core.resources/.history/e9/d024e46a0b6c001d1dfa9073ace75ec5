@@ -1,0 +1,25 @@
+package treno;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class TrenoFactory {
+
+	public static List<Vagone> creaTreno(String treno){
+		List<Vagone> listaVagoni = new ArrayList<>();
+		for(int i = 0; i < treno.length(); i++) {
+			char vagone = treno.toCharArray()[i];
+			switch(vagone) {
+			case 'H' -> listaVagoni.add(new Locomotiva());
+			case 'C'
+			case 'P'
+			case 'R'
+			}
+		}
+		treno.toCharArray();
+		
+		
+		
+		return listaVagoni;
+	}
+}

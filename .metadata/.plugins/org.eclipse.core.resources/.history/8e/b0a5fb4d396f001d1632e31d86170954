@@ -1,0 +1,21 @@
+package com.exception;
+
+public class TroppeLocomotive extends TrenoException {
+
+	private static final long serialVersionUID = -1565858016312827662L;
+	private int numeroPostiTreno;
+	private int maxPosti;
+	private String message;
+	private String suggerimento;
+	
+	public TroppeLocomotive(String sigla){
+		super(sigla);
+		this.message = "Il treno inserito ha troppe locomotive";
+		this.suggerimento = "Un treno non può avere più di due locomotive.";
+	}
+	
+	public String getMessage() {
+		return super.getMessage() + this.message + "\n" + this.suggerimento;
+	}
+
+}
